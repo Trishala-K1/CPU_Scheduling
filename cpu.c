@@ -11,7 +11,6 @@ int check_null(struct PCB pcb){
     }
 }
 
-
 //sets pcb
 void set_pcb(struct PCB *to_set, int pid, int ats, int tbt, int est, int eet, int rbt, int pp){
     to_set->process_id = pid;
@@ -34,6 +33,8 @@ int enqueue_pcb(struct PCB ready_queue[], int* queue_cnt, struct PCB* to_enqueue
 
     return 1;
 }
+
+//.................................................................................................................................
 
 //handle arrival pp
 struct PCB handle_process_arrival_pp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, struct PCB current_process, struct PCB new_process, int timestamp)
@@ -77,6 +78,8 @@ struct PCB handle_process_arrival_pp(struct PCB ready_queue[QUEUEMAX], int *queu
 
 }
 
+//.................................................................................................................................
+
 // handle completion pp
 struct PCB handle_process_completion_pp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp){
 
@@ -110,6 +113,8 @@ struct PCB handle_process_completion_pp(struct PCB ready_queue[QUEUEMAX], int *q
     return high_priority; 
 }
 
+//.................................................................................................................................
+
 //handle arrival srtp
 struct PCB handle_process_arrival_srtp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, struct PCB current_process, struct PCB new_process, int time_stamp){
     //check process
@@ -141,6 +146,7 @@ struct PCB handle_process_arrival_srtp(struct PCB ready_queue[QUEUEMAX], int *qu
     return new_process;
 }
 
+//.................................................................................................................................
 
 //handle completion srtp
 struct PCB handle_process_completion_srtp(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp){
@@ -172,6 +178,8 @@ struct PCB handle_process_completion_srtp(struct PCB ready_queue[QUEUEMAX], int 
     return srbt;
 }
 
+//.................................................................................................................................
+
 //handle arrival rr
 struct PCB handle_process_arrival_rr(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, struct PCB current_process, struct PCB new_process, int timestamp, int time_quantum){
     if(check_null(current_process)){
@@ -190,6 +198,8 @@ struct PCB handle_process_arrival_rr(struct PCB ready_queue[QUEUEMAX], int *queu
     
     return current_process;
 }
+
+//.................................................................................................................................
 
 //handle completion rr
 struct PCB handle_process_completion_rr(struct PCB ready_queue[QUEUEMAX], int *queue_cnt, int timestamp, int time_quantum){
